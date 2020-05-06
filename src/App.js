@@ -86,11 +86,12 @@ class App extends Component {
 
   render() {
     const buttonStyle = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      color: 'white',
     };
 
     let persons = null;
@@ -108,7 +109,10 @@ class App extends Component {
               changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
-      )
+      );
+
+      buttonStyle.backgroundColor = 'red';
+
     }
 
     if (this.state.userTextArray.length > 0) {
