@@ -128,6 +128,15 @@ class App extends Component {
       )
     }
 
+    const classes = [];
+
+    if ( this.state.persons.length <=2 ) {
+      classes.push('red');
+    }
+    if ( this.state.persons.length <=1 ) {
+      classes.push('bold');
+    }
+
     return (
       <div className="App">
 
@@ -139,6 +148,7 @@ class App extends Component {
         {letterCards}
 
         <h1>The Fam</h1>
+        <p className={classes.join(' ')}>The family members!</p>
         <button
           style={buttonStyle}
           onClick={this.togglePersonsHandler}>Show People</button>
