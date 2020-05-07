@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium from 'radium';
 import Person from './Person/Person';
 import UserInputBox from './UserInputBox/UserInputBox'
 import LetterCard from './LetterCard/LetterCard';
@@ -92,6 +93,10 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer',
       color: 'white',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+      }
     };
 
     let persons = null;
@@ -112,6 +117,10 @@ class App extends Component {
       );
 
       buttonStyle.backgroundColor = 'red';
+      buttonStyle [':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
 
     }
 
@@ -161,4 +170,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
