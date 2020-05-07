@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import Person from './Person/Person';
 import UserInputBox from './UserInputBox/UserInputBox'
 import LetterCard from './LetterCard/LetterCard';
@@ -43,8 +43,8 @@ class App extends Component {
     let index = 0;
 
     for (let letter in event.target.value) {
-      newUserTextArray.push({id: index, letter: event.target.value[letter]})
-      index ++;
+      newUserTextArray.push({ id: index, letter: event.target.value[letter] })
+      index++;
     }
 
     this.setState(
@@ -117,7 +117,7 @@ class App extends Component {
       );
 
       buttonStyle.backgroundColor = 'red';
-      buttonStyle [':hover'] = {
+      buttonStyle[':hover'] = {
         backgroundColor: 'salmon',
         color: 'black'
       }
@@ -139,32 +139,34 @@ class App extends Component {
 
     const classes = [];
 
-    if ( this.state.persons.length <=2 ) {
+    if (this.state.persons.length <= 2) {
       classes.push('red');
     }
-    if ( this.state.persons.length <=1 ) {
+    if (this.state.persons.length <= 1) {
       classes.push('bold');
     }
 
     return (
-      <div className="App">
+      <StyleRoot>
+        <div className="App">
 
-        <UserInputBox
-          changed={(event) => this.userEnteredText(event)}
-          userText={this.state.userText}
-          length={this.state.userTextArray.length} />
+          <UserInputBox
+            changed={(event) => this.userEnteredText(event)}
+            userText={this.state.userText}
+            length={this.state.userTextArray.length} />
 
-        {letterCards}
+          {letterCards}
 
-        <h1>The Fam</h1>
-        <p className={classes.join(' ')}>The family members!</p>
-        <button
-          style={buttonStyle}
-          onClick={this.togglePersonsHandler}>Show People</button>
+          <h1>The Fam</h1>
+          <p className={classes.join(' ')}>The family members!</p>
+          <button
+            style={buttonStyle}
+            onClick={this.togglePersonsHandler}>Show People</button>
 
-        {persons}
+          {persons}
 
-      </div>
+        </div>
+      </StyleRoot>
       //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi I\'m a React App!!!'))
     );
   }
