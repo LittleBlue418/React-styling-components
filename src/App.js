@@ -3,10 +3,24 @@ import './App.css';
 import Person from './Person/Person';
 import Radium from 'radium';
 // import Radium, { StyleRoot } from 'radium';          -RADIUM STYLEROOT
+import styled from 'styled-components';
+
 import UserInputBox from './UserInputBox/UserInputBox'
 import LetterCard from './LetterCard/LetterCard';
 
+const StyledButton = styled.button`
+  background-color: ${props => props.altStyle ? 'red' : 'green'};
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
 
+  &:hover {
+    background-color: ${props => props.altStyle ? 'salmon' : 'lightgreen'};
+    color: black;
+  }
+`;
 
 class App extends Component {
   state = {
@@ -87,18 +101,18 @@ class App extends Component {
   }
 
   render() {
-    const buttonStyle = {
-      backgroundColor: 'green',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      color: 'white',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    };
+    //  const buttonStyle = {
+    //   backgroundColor: 'green',
+    //   font: 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer',
+    //   color: 'white',
+    //   ':hover': {
+    //     backgroundColor: 'lightgreen',
+    //     color: 'black'
+    //   }
+    // };
 
     let persons = null;
     let letterCards = null;
@@ -117,11 +131,11 @@ class App extends Component {
         </div>
       );
 
-      buttonStyle.backgroundColor = 'red';
-      buttonStyle[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
+      // buttonStyle.backgroundColor = 'red';
+      // buttonStyle[':hover'] = {
+      //   backgroundColor: 'salmon',
+      //   color: 'black'
+      // }
 
     }
 
@@ -160,9 +174,12 @@ class App extends Component {
 
           <h1>The Fam</h1>
           <p className={classes.join(' ')}>The family members!</p>
-          <button
-            style={buttonStyle}
-            onClick={this.togglePersonsHandler}>Show People</button>
+          <StyledButton
+            // style={buttonStyle}
+            altStyle={this.state.showPersons}
+            onClick={this.togglePersonsHandler}>
+              Show People
+          </StyledButton>
 
           {persons}
 
