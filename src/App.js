@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';                        -OLD WAY OF IMPORTING
+
+
 import Person from './Person/Person';
 import Radium from 'radium';
 // import Radium, { StyleRoot } from 'radium';          -RADIUM STYLEROOT
-// import styled from 'styled-components';
+// import styled from 'styled-components';              -STYLED COMPONENTS
 
 import UserInputBox from './UserInputBox/UserInputBox'
 import LetterCard from './LetterCard/LetterCard';
 
-// const StyledButton = styled.button`
+// const StyledButton = styled.button`                  -STYLED COMPONENTS
 //   background-color: ${props => props.altStyle ? 'red' : 'green'};
 //   font: inherit;
 //   border: 1px solid blue;
@@ -101,7 +103,7 @@ class App extends Component {
   }
 
   render() {
-    //  const buttonStyle = {
+    //  const buttonStyle = {                   -OLD IN JS STYLE
     //   backgroundColor: 'green',
     //   font: 'inherit',
     //   border: '1px solid blue',
@@ -131,7 +133,7 @@ class App extends Component {
         </div>
       );
 
-      // buttonStyle.backgroundColor = 'red';
+      // buttonStyle.backgroundColor = 'red';       -OLD IN JS STYLE
       // buttonStyle[':hover'] = {
       //   backgroundColor: 'salmon',
       //   color: 'black'
@@ -174,16 +176,18 @@ class App extends Component {
 
           <h1>The Fam</h1>
           <p className={classes.join(' ')}>The family members!</p>
-          <StyledButton
-            // style={buttonStyle}
-            altStyle={this.state.showPersons}
+          <button
+            // style={buttonStyle}                         -OLD IN JS STYLE
+            // altStyle={this.state.showPersons}          -RADIUM STYLEROOT
             onClick={this.togglePersonsHandler}>
               Show People
-          </StyledButton>
+          </button>
+
 
           {persons}
 
         </div>
+      // <StyledButton>       -STYLED COMPONENTS
       // </StyleRoot>         -RADIUM STYLEROOT
     );
   }
