@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Radium from 'radium';
+// import Radium, { StyleRoot } from 'radium';          -RADIUM STYLEROOT
 import UserInputBox from './UserInputBox/UserInputBox'
 import LetterCard from './LetterCard/LetterCard';
 
@@ -146,6 +148,7 @@ class App extends Component {
     }
 
     return (
+      // <StyleRoot>            -RADIUM STYLEROOT
         <div className="App">
 
           <UserInputBox
@@ -164,8 +167,9 @@ class App extends Component {
           {persons}
 
         </div>
+      // </StyleRoot>         -RADIUM STYLEROOT
     );
   }
 }
 
-export default App;
+export default Radium(App);
