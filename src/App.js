@@ -3,24 +3,24 @@ import './App.css';
 import Person from './Person/Person';
 import Radium from 'radium';
 // import Radium, { StyleRoot } from 'radium';          -RADIUM STYLEROOT
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 import UserInputBox from './UserInputBox/UserInputBox'
 import LetterCard from './LetterCard/LetterCard';
 
-const StyledButton = styled.button`
-  background-color: ${props => props.altStyle ? 'red' : 'green'};
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
-  color: white;
+// const StyledButton = styled.button`
+//   background-color: ${props => props.altStyle ? 'red' : 'green'};
+//   font: inherit;
+//   border: 1px solid blue;
+//   padding: 8px;
+//   cursor: pointer;
+//   color: white;
 
-  &:hover {
-    background-color: ${props => props.altStyle ? 'salmon' : 'lightgreen'};
-    color: black;
-  }
-`;
+//   &:hover {
+//     background-color: ${props => props.altStyle ? 'salmon' : 'lightgreen'};
+//     color: black;
+//   }
+// `;
 
 class App extends Component {
   state = {
