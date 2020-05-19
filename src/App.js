@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import './App.css';                        -OLD WAY OF IMPORTING
-
+import classes from './App.module.css';
 
 import Person from './Person/Person';
 import Radium from 'radium';
@@ -119,6 +119,8 @@ class App extends Component {
     let persons = null;
     let letterCards = null;
 
+    let btnClasses = [classes.Button];
+
     if (this.state.showPersons) {
       persons = (
         <div>
@@ -139,6 +141,7 @@ class App extends Component {
       //   color: 'black'
       // }
 
+      btnClasses.push(classes.Red);
     }
 
     if (this.state.userTextArray.length > 0) {
@@ -154,18 +157,18 @@ class App extends Component {
       )
     }
 
-    const classes = [];
+    const assignedClasses = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
 
     return (
       // <StyleRoot>            -RADIUM STYLEROOT
-        <div className="App">
+        <div className={classes.App}>
 
           <UserInputBox
             changed={(event) => this.userEnteredText(event)}
@@ -175,10 +178,11 @@ class App extends Component {
           {letterCards}
 
           <h1>The Fam</h1>
-          <p className={classes.join(' ')}>The family members!</p>
+          <p className={assignedClasses.join(' ')}>The family members!</p>
           <button
             // style={buttonStyle}                         -OLD IN JS STYLE
             // altStyle={this.state.showPersons}          -RADIUM STYLEROOT
+            className={btnClasses.join(' ')}
             onClick={this.togglePersonsHandler}>
               Show People
           </button>
